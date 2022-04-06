@@ -1,0 +1,98 @@
+$marquis-accent-color: #8B0622;
+$gaylord-accent-color: #926E49;
+$default-accent-color: #8B0622;
+
+@mixin slider-padination-color($color) {
+    .swiper-pagination-bullet-active {
+        background-color: $color !important;
+    }
+}
+
+.chat-header-logo::before {
+    content: "邏";
+    color: white;
+}
+
+.default.chat,
+.mc.chat {
+    // marriott marquis
+    @include slider-padination-color($marquis-accent-color);
+
+    .chat-open-icon {
+        .chat-button {
+          background: $marquis-accent-color;
+        }
+    }
+    .chat-header {
+        background: $marquis-accent-color;
+        .chat-header-logo {
+            &::before {
+                content: "邏";
+                color: white;
+            }
+            
+        }
+    }
+    .conversation {
+        .chat-chat-bot-avatar,
+        .list-header {
+            background: $marquis-accent-color !important;
+        }
+        .read-or-hide,
+        [class*="icon-"]::before  {
+            color: $marquis-accent-color;
+        }
+    }
+
+    .modal-content {
+        [class*="icon-"]::before {
+            color: $marquis-accent-color !important;
+        }
+    }
+    
+    
+}
+
+.ge.chat {
+    @include slider-padination-color($gaylord-accent-color);
+    .chat-open-icon {
+        .chat-button {
+          background: $gaylord-accent-color;
+        }
+    }
+    .chat-header {
+        background: $gaylord-accent-color;
+        .chat-header-logo {
+            &::before {
+                content: "句";
+            }
+        }
+    }
+
+    .conversation {
+        .chat-chat-bot-avatar,
+        .list-header {
+            background: $gaylord-accent-color !important;
+        }
+
+        .read-or-hide,
+        [class*="icon-"]::before  {
+            color: $gaylord-accent-color
+        }
+    }
+    .modal-content {
+        [class*="icon-"]::before {
+            color: $gaylord-accent-color !important;
+        }
+    }
+    
+        .swiper {
+      
+          .swiper-button-prev,
+          .swiper-button-next {
+            &:after {
+              color: $gaylord-accent-color
+            }
+          }
+        }
+}

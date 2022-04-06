@@ -1,0 +1,156 @@
+$marquis-accent-color: #8B0622;
+$gaylord-accent-color: #926E49;
+
+@mixin loader-color($color) {
+    background-color: $color !important;
+    color: $color !important;
+}
+
+@mixin loader-animations($color) {
+  @keyframes dotFalling {
+    0% {
+      box-shadow: 9999px -15px 0 0 rgba(152, 128, 255, 0);
+    }
+    25%,
+    50%,
+    75% {
+      box-shadow: 9999px 0 0 0 $color;
+    }
+    100% {
+      box-shadow: 9999px 15px 0 0 rgba(152, 128, 255, 0);
+    }
+  }
+  
+  @keyframes dotFallingBefore {
+    0% {
+      box-shadow: 9984px -15px 0 0 rgba(152, 128, 255, 0);
+    }
+    25%,
+    50%,
+    75% {
+      box-shadow: 9984px 0 0 0 $color;
+    }
+    100% {
+      box-shadow: 9984px 15px 0 0 rgba(152, 128, 255, 0);
+    }
+  }
+  
+  @keyframes dotFallingAfter {
+    0% {
+      box-shadow: 10014px -15px 0 0 rgba(152, 128, 255, 0);
+    }
+    25%,
+    50%,
+    75% {
+      box-shadow: 10014px 0 0 0 $color;
+    }
+    100% {
+      box-shadow: 10014px 15px 0 0 rgba(152, 128, 255, 0);
+    }
+  }
+}
+
+.default.chat,
+.mc.chat {
+  .dot-falling {
+    box-shadow: 9999px 0 0 0 $marquis-accent-color;
+  }
+  @include loader-animations($marquis-accent-color);
+}
+
+// .ge.chat {
+//   .dot-falling {
+//     box-shadow: 9999px 0 0 0 $gaylord-accent-color;
+    
+//   }
+
+//   .dot-falling, .dot-falling::before,
+//   .dot-falling::after  {
+//     @include loader-color($gaylord-accent-color);
+//   }
+//   @include loader-animations($gaylord-accent-color);
+//   @include loader-color($gaylord-accent-color);
+// }
+
+.dot-falling {
+    position: relative;
+    left: -9999px;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: $marquis-accent-color;
+    color: $marquis-accent-color;
+    box-shadow: 9999px 0 0 0 $marquis-accent-color;
+    animation: dotFalling 1s infinite linear;
+    animation-delay: .1s;
+    &::before, &::after {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        top: 0;
+      }
+  }
+  
+
+  
+  .dot-falling::before {
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: $marquis-accent-color;
+    color: $marquis-accent-color;
+    animation: dotFallingBefore 1s infinite linear;
+    animation-delay: 0s;
+  }
+  
+  .dot-falling::after {
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: $marquis-accent-color;
+    color: $marquis-accent-color;
+    animation: dotFallingAfter 1s infinite linear;
+    animation-delay: .2s;
+  }
+  
+  // @keyframes dotFalling {
+  //   0% {
+  //     box-shadow: 9999px -15px 0 0 rgba(152, 128, 255, 0);
+  //   }
+  //   25%,
+  //   50%,
+  //   75% {
+  //     box-shadow: 9999px 0 0 0 $marquis-accent-color;
+  //   }
+  //   100% {
+  //     box-shadow: 9999px 15px 0 0 rgba(152, 128, 255, 0);
+  //   }
+  // }
+  
+  // @keyframes dotFallingBefore {
+  //   0% {
+  //     box-shadow: 9984px -15px 0 0 rgba(152, 128, 255, 0);
+  //   }
+  //   25%,
+  //   50%,
+  //   75% {
+  //     box-shadow: 9984px 0 0 0 $marquis-accent-color;
+  //   }
+  //   100% {
+  //     box-shadow: 9984px 15px 0 0 rgba(152, 128, 255, 0);
+  //   }
+  // }
+  
+  // @keyframes dotFallingAfter {
+  //   0% {
+  //     box-shadow: 10014px -15px 0 0 rgba(152, 128, 255, 0);
+  //   }
+  //   25%,
+  //   50%,
+  //   75% {
+  //     box-shadow: 10014px 0 0 0 $marquis-accent-color;
+  //   }
+  //   100% {
+  //     box-shadow: 10014px 15px 0 0 rgba(152, 128, 255, 0);
+  //   }
+  // }
