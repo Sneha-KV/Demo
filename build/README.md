@@ -1,9 +1,9 @@
-## Marriott VDA
+
 
 
 ####
 
-A chat bot application for the Marriott properties 
+A chat bot application for the  properties 
 
 
 
@@ -55,39 +55,28 @@ This command runs the custom webpack config file and returns one file of each ty
 
 `npm run wStart`
 
-var botElement = document.createElement('div');
-div.id = 'chat-bot-root';
-document.body.appendChild(botElement)
-var script = document.createElement('script');
-script.setAttribute(
-  'src',
-  'http://vda-fe-code.s3-website-us-east-1.amazonaws.com/js/bundle.js',
-);
-
-script.setAttribute('async', '');
-
-// 👇️ optionally set script to be treated as JS module
-// script.setAttribute('type', 'module');
-
-script.onload = function handleScriptLoaded() {
-  console.log('script has loaded');
-};
-
-script.onerror = function handleScriptError() {
-  console.log('error loading script');
-};
-document.body.appendChild(script);
-
-// styles
-var link = document.createElement('link'); 
-
-// set the attributes for link element
-    link.rel = 'stylesheet'; 
-
-link.type = 'text/css';
-
-link.href = 'http://vda-fe-code.s3-website-us-east-1.amazonaws.com/css/bundle.css'; 
-
-// Get HTML head element to append 
-// link element to it 
-document.getElementsByTagName('head')[0].appendChild(link); 
+## Launch code
+var botData = window.dataLayer;
+var bot = document.createElement('iframe');
+bot.id= "chat-bot-iframe"
+bot.src = 'http://vda-fe-code.s3-website-us-east-1.amazonaws.com/';
+bot.style.right = "24px";
+bot.style.bottom = "24px";
+bot.style.position = "fixed";
+bot.style.zIndex = "10010";
+bot.width = "100%";
+bot.height = "90%";
+bot.title="marriot-chat-frame";
+bot.style.opacity = 1;
+bot.style.maxWidth = '375px';
+bot.style.maxHeight = '725px';
+bot.style.width = '360px';
+bot.style.display = 'none';
+bot.style.border = 'none';
+bot.style.borderRadius = '14px';
+document.body.appendChild(bot);
+setTimeout(()=> {
+var botIframe = document.getElementById('chat-bot-iframe');
+botIframe.contentWindow.postMessage(botData, '*');
+botIframe.style.display = 'block';
+}, 3000);
